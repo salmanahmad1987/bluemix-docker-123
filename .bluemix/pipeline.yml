@@ -18,7 +18,7 @@ stages:
     SETUP_SERVICE_SPACE: 'true'
     script: |-
       #!/bin/sh
-      cf push --no-manifest --no-start
+      cf push ${CF_APP} --no-manifest --no-start
 - name: ➋ Build phpinfo Container
   inputs:
   - type: git
@@ -121,6 +121,7 @@ stages:
     CONTAINER_NAME: ${CONTAINER_PREFIX}-phpinfo
     DEPLOY_TYPE: red_black
     COMMAND: |
+        cf ic init
         #!/bin/bash
         # The following are some example deployment scripts.  Use these as is or fork them and include your updates here:
         echo -e "${label_color}Starting deployment script${no_color}"
