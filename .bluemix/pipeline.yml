@@ -41,7 +41,8 @@ stages:
         #!/bin/bash
         # The following colors have been defined to help with presentation of logs: green, red, label_color, no_color.  
         log_and_echo "$LABEL" "Starting build script"
-        cf ic init
+        cf ic login;
+        cf ic init;
         # The IBM Container BM Containers plug-in (cf ic), Git client (git), and IDS Inventory CLI (ids-inv) have been installed.
         # Based on the organization and space selected in the Job credentials are in place for both IBM Container Service and IBM Bluemix 
         #####################
@@ -126,7 +127,8 @@ stages:
         #!/bin/bash
         # The following are some example deployment scripts.  Use these as is or fork them and include your updates here:
         echo -e "${label_color}Starting deployment script${no_color}"
-        cf ic init
+        cf ic login;
+        cf ic init;
 
         # To view/fork this script goto: https://github.com/Osthanes/deployscripts
         # git_retry will retry git calls to prevent pipeline failure on temporary github problems
