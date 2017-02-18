@@ -37,6 +37,7 @@ stages:
     IMAGE_NAME: phpinfo
     USE_CACHED_LAYERS: 'true'
     COMMAND: |
+        cf ic init
         #!/bin/bash
         # The following colors have been defined to help with presentation of logs: green, red, label_color, no_color.  
         log_and_echo "$LABEL" "Starting build script"
