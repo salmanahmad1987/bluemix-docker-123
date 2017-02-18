@@ -36,7 +36,7 @@ stages:
     extension_id: ibm.devops.services.pipeline.container.builder
     IMAGE_NAME: phpinfo
     USE_CACHED_LAYERS: 'true'
-    script:|- 
+    script: |- 
      #!/bin/sh
         cf ic namespace set ${CF_SPACE};
         cf ic init;
