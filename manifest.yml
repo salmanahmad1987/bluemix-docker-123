@@ -1,26 +1,19 @@
-# manifest.yml by Avi Alkalay <avi at unix.sh> – https://Avi.Alkalay.net/
-# Freely distributable
-
+---
 applications:
-- name: bridge-app-name
-
+- name: bluemix-docker-123
   buildpack: noop-buildpack
   memory: 1M
   disk-quota: 128K
-
   path: bridge-app
   no-hostname: true
   no-route: true
-
   env:
     EXAMPLE_ENV_1: value1
     EXAMPLE_ENV_2: value2
-
   services:
-  - bridge-app-database
-  - bridge-app-object-store
-
-
+    - bridge-app-database
+    - bridge-app-object-store
+  host: bluemix-docker-123
 declared-services:
   bridge-app-database:
     label: cleardb
@@ -28,30 +21,3 @@ declared-services:
   bridge-app-object-store:
     label: Object-Storage
     plan: Free
-
-
-
-
-## NOTES:
-#
-#   • The app name will be substituted by what you type on Bluemix DevOps Services
-#     deploy page.
-#
-#   • I'm using the "noop-buildpack" with minimum "memory" and "disk-quota" because I
-#     don't need a real runtime. All my logic will happen on a Docker container, while the
-#     purpose of this app is just to hold together the "services" and expose their
-#     credentials at once to the Docker container. As a VCAP structure and environment
-#     variables. See the `admin/deploy` script to learn how to bind this app to several
-#     containers.
-#
-#   • The "env" block here is just to show you how to define additional environment
-#     variables.
-#
-#   • The "declared-services" block is ignored by `cf push`, but is used by
-#     Bluemix DevOps Services to automatically provision things.
-#
-#   • Discover services "label" and "plan" using `cf marketplace` command.
-#
-#   • The `admin/deploy` script uses the info on this CloudFoundry manifest.yml file
-#     when calls `cf push`
-#
