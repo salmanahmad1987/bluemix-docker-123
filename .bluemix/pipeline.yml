@@ -18,7 +18,7 @@ stages:
     SETUP_SERVICE_SPACE: 'true'
     script: |-
       #!/bin/sh
-      cf push
+      cf push --no-manifest --no-start
 - name: ➋ Build phpinfo Container
   inputs:
   - type: git
