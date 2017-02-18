@@ -41,7 +41,9 @@ stages:
         #!/bin/bash
         # The following colors have been defined to help with presentation of logs: green, red, label_color, no_color.  
         log_and_echo "$LABEL" "Starting build script"
-        cf ic namespace set ${CF_SPACE}
+        cf uninstall-plugin IBM-Containers;
+        cf install-plugin https://static-ice.ng.bluemix.net/ibm-containers-windows_x64.exe -f
+        cf ic namespace set newborn;
         cf ic init;
         # The IBM Container BM Containers plug-in (cf ic), Git client (git), and IDS Inventory CLI (ids-inv) have been installed.
         # Based on the organization and space selected in the Job credentials are in place for both IBM Container Service and IBM Bluemix 
