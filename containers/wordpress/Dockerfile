@@ -1,7 +1,7 @@
 FROM centos:6
-MAINTAINER Avi Alkalay <avi at unix.sh>
+MAINTAINER salman.ahmad.9211@gmail.com
 
-# WordPress as RPM from https://avi.alkalay.net/2016/01/wordpress-fedora-rpm.html
+
 
 ADD *.patch /tmp/
 COPY index.html /var/www/html/
@@ -27,8 +27,3 @@ EXPOSE 80
 
 # This container is a web server serving PHP apps, so a plain Apache is our entry point
 ENTRYPOINT [ "/usr/sbin/httpd", "-DFOREGROUND" ]
-
-
-
-# Dockerfile by Avi Alkalay <avi at unix.sh> – https://Avi.Alkalay.net/
-# Freely distributable
