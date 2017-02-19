@@ -19,8 +19,6 @@ stages:
     script: |-
       #!/bin/sh
       cf push --no-start
-      cf ic namespace set ${CF_SPACE};
-      cf ic init;
 - name: ➋ Build phpinfo Container
   inputs:
   - type: git
